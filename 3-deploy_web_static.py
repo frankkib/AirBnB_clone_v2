@@ -13,7 +13,7 @@ def do_pack():
     """"function that packs the web"""
     try:
         os.makedirs("versions")
-    except Exception:
+    except:
         pass
     file_name = "versions/web_static_{}.tgz\
             ".format(datetime.now().strftime("%Y%m%d%H%M%S"))
@@ -39,7 +39,7 @@ def do_deploy(archive_path):
         run("sudo rm -rf /data/web_static/current")
         run("sudo ln -s {} /data/web_static/current".format(folder_name))
         return True
-    except Exception:
+    except:
         return False
 
 
