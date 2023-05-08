@@ -7,40 +7,44 @@ file { '/data':
   ensure => directory,
   owner  => 'ubuntu',
   group  => 'ubuntu',
+  mode   => '0777',
 }
 file { '/data/web_static':
   ensure => directory,
   owner  => 'ubuntu',
   group  => 'ubuntu',
+  mode   => '0777'
 }
 file { '/data/web_static/releases':
   ensure => directory,
   owner  => 'ubuntu',
   group  => 'ubuntu',
+  mode   => '0777',
 }
 file { '/data/web_static/shared':
   ensure => directory,
   owner  => 'ubuntu',
   group  => 'ubuntu',
+  mode   => '0777',
 }
 file { '/data/web_static/releases/test':
   ensure => directory, 
   owner  => 'ubuntu',
   group  => 'ubuntu',
-  mode   => '0644',
+  mode   => '0777',
 }
 file { '/data/web_static/releases/test/index.html':
   content => '<html><body> Holberton School</body></html>',
   owner   => 'ubuntu',
   group   => 'ubuntu',
-  mode    => '0644',
+  mode    => '0777',
 }
 file { '/data/web_static/current':
   ensure => 'link',
   target => '/data/web_static/releases/test',
   owner  => 'ubuntu',
   group  => 'ubuntu',
-  mode   => '0644',
+  mode   => '0777',
 }
 file { '/etc/nginx/sites-available/default':
   ensure  => present
