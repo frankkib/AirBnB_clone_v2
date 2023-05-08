@@ -15,8 +15,7 @@ def do_pack():
         os.makedirs("versions")
     except:
         pass
-    file_name = "versions/web_static_{}.tgz\
-            ".format(datetime.now().strftime("%Y%m%d%H%M%S"))
+    file_name = "versions/web_static_{}.tgz".format(datetime.now().strftime("%Y%m%d%H%M%S"))
     local("tar -cvzf {} web_static".format(file_name))
     return file_name if os.path.exists(file_name) else None
 
@@ -28,8 +27,7 @@ def do_deploy(archive_path):
 
     try:
         file_name = archive_path.split("/")[-1]
-        folder_name = "/data/web_static/releases/{}\
-                ".format(file_name.split(".")[0])
+        folder_name = "/data/web_static/releases/{}".format(file_name.split(".")[0])
         put(archive_path, "/tmp/")
         run("sudo mkdir -p {}/".format(folder_name))
         run("sudo tar -xzf /tmp/{} -C {}/".format(file_name, folder_name))
