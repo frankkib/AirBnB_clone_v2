@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """python module that starts a web flask app"""
-from flask import Flask
+from flask import Flask, escape
 app = Flask(__name__)
 
 
@@ -12,8 +12,15 @@ def hello_hbnb():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """returns HBNB PATH"""
+    """returns HBNB path"""
     return 'HBNB'
+
+
+@app.route('/c/<text>', strict_slashes=False)
+def some_text():
+    """returns sometext passed in"""
+    text = escape(text.replace('_', ' '))
+    return f"C {text}"
 
 
 if __name__ == "__main__":
