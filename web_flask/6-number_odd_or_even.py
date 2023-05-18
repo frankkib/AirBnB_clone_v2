@@ -38,10 +38,21 @@ def number(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def template_number():
+def template_number(n):
     """displays html"""
     if isinstance(n, int):
         return render_template('5-number.html', number=n)
+    else:
+        return 'Invalid input'
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def odd_or_even_number(n):
+    """returns odd or even"""
+    if isinstance(n, int):
+        odd_or_even = 'even' if n % 2 == 0 else 'odd'
+        return render_template(
+                '6-number_odd_or_even.html', number=n, odd_or_even=odd_or_even)
     else:
         return 'Invalid input'
 
