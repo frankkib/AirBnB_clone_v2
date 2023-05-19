@@ -20,7 +20,7 @@ def hbnb():
 def some_text():
     """returns sometext passed in"""
     text = escape(text.replace('_', ' '))
-    return f"C {text}"
+    return 'C {}'.format(text)
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
@@ -28,7 +28,7 @@ def some_text():
 def show_python():
     """shows the sub_path"""
     text = escape(text.replace('_', ' '))
-    return f"Python{text}"
+    return 'Python {}'.format(text)
 
 
 if __name__ == "__main__":

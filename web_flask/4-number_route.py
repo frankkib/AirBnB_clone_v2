@@ -20,7 +20,7 @@ def hbnb():
 def some_text():
     """returns sometext passed in"""
     text = escape(text.replace('_', ' '))
-    return f"C {text}"
+    return 'C {}'.format(text)
 
 
 @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
@@ -28,13 +28,13 @@ def some_text():
 def show_python():
     """shows the sub_path"""
     text = escape(text.replace('_', ' '))
-    return f"Python{text}"
+    return 'Python {}'.format(text)
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
     """return number of times"""
-    return f"{n} is a number"
+    return '{} is a number'.format(n)
 
 
 if __name__ == "__main__":

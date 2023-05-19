@@ -20,7 +20,7 @@ def hbnb():
 def some_text():
     """returns sometext passed in"""
     text = escape(text.replace('_', ' '))
-    return f"C {text}"
+    return 'C {}'.format(text)
 
 
 if __name__ == "__main__":
